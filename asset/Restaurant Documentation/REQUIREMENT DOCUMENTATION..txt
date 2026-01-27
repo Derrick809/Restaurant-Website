@@ -1,0 +1,70 @@
+REQUIREMENT DOCUMENTATION.
+
+Website Overview
+
+Derry’s Restaurant website allows customers to:
+
+Browse menu offerings
+
+Filter food categories
+
+Place simulated orders
+
+Admins can:
+
+Manage food items
+
+View orders
+
+Update menu content (frontend simulation)
+
+3.2 Core Requirements
+Menu Requirements
+
+15 Local Foods
+
+20 Continental Foods
+
+Each food includes:
+Image
+Name 
+Price
+Category
+Description
+
+
+3.3 Customer Dashboard Requirements
+
+View menu
+
+Filter foods
+
+Add/remove items from cart
+
+View order summary
+
+Place order (simulated)
+
+3.4 Admin Dashboard Requirements
+
+View all foods
+
+Add new food
+
+Edit food details
+
+Delete food
+
+View customer orders
+
+3.5 Non-Functional Requirements
+
+Fully responsive design
+
+Clean UI/UX
+
+Fast load speed
+
+Cross-browser support
+
+Maintainable code structure

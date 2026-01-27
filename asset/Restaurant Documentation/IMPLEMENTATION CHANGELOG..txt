@@ -1,0 +1,69 @@
+IMPLEMENTATION CHANGELOG.
+
+
+Phase 1: Project Setup
+
+Created folder structure
+
+Linked Bootstrap CDN
+
+Built base HTML pages
+
+Phase 2: Food Data Setup
+
+Added 15 local foods
+
+Added 20 continental foods
+
+Linked images from folders
+
+Phase 3: Carousel Feature
+
+Dynamic food carousel
+
+Random selection logic
+
+Auto-slide & pause on hover
+
+Phase 4: Ordering UI
+
+Menu cards
+
+Add-to-cart logic
+
+Order summary calculation
+
+Phase 5: Categorization
+
+Filter buttons
+
+Category-based rendering
+
+Phase 6: Admin Dashboard
+
+Food management
+
+Order viewing
+
+Data manipulation simulation
+
+Phase 7: Final UI Improvements
+
+Responsive tuning
+
+Visual enhancements
+
+Code cleanup and optimization
+
+
+✅ CHANGELOG SUMMARY
+
+| Version | Key Feature     |
+| ------- | --------------- |
+| 1.0     | Project setup   |
+| 1.1     | Food data       |
+| 1.2     | Carousel        |
+| 1.3     | Ordering UI     |
+| 1.4     | Categorization  |
+| 1.5     | Admin dashboard |
+| 1.6     | UI improvements |

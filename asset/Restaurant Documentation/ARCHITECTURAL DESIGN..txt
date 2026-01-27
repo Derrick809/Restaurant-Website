@@ -1,0 +1,31 @@
+ARCHITECTURAL DESIGN.
+
+4.1 Written Architecture
+
+The system follows a client-side layered architecture:
+
+Presentation Layer – HTML pages
+
+Styling Layer – CSS & Bootstrap
+
+Logic Layer – JavaScript files
+
+Data Layer (Simulated) – JavaScript objects & arrays
+
+There is no backend or database.
+
+4.2 Architectural Diagram (Text-Based)
+
+User Browser
+     |
+     v
+HTML Pages (UI)
+     |
+     v
+CSS / Bootstrap
+     |
+     v
+JavaScript Logic
+     |
+     v
+Simulated Data (JS Arrays)

@@ -1,0 +1,54 @@
+FRONTEND TECHNICAL DOCUMENTATION
+
+
+UI Features
+
+Responsive navigation bar
+
+Food cards with images and prices
+
+Category filter buttons
+
+Shopping cart interface
+
+Admin dashboard panels
+
+Bootstrap components used:
+
+Grid system
+
+Cards
+
+Carousel
+
+Buttons
+
+Forms
+
+Tables
+
+
+Carousel Functionality (Homepage)
+
+Features:
+
+Automatically slides every 4 seconds
+
+Displays 10 random dishes:
+
+  5 Local foods
+
+  5 Continental foods
+
+Clickable slides
+
+Pauses on hover
+
+| Feature            | Description                        |
+| ------------------ | ---------------------------------- |
+| Food rendering     | DOM-based rendering from JS arrays |
+| Category filtering | Button-triggered filter logic      |
+| Cart system        | Array-based cart simulation        |
+| Price calculation  | Real-time total update             |
+| Admin logic        | Frontend-only data manipulation    |
+

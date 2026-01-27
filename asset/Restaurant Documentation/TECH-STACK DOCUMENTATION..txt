@@ -1,0 +1,9 @@
+TECH-STACK DOCUMENTATION.
+
+HTML (website structure) : Provides semantic layout, accessibility, and SEO-friendly structure
+
+CSS (styling) : Enables custom design, layout control, and branding
+
+Bootstrap (responsive UI) : Speeds up development using prebuilt responsive components
+
+JavaScript (frontend logic) : Handles interactivity, carousel, filtering, ordering, and dashboards

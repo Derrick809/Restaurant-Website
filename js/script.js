@@ -73,6 +73,16 @@ function safePath(folder, filename){
   return `asset/Restaurant%20Images/${segFolder}/${segFile}`;
 }
 
+// Notification function
+function showNotification(message) {
+  const toast = document.getElementById('notificationToast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 1000);
+}
+
 // deterministic price from filename/title (gives values between ~4.00 and ~12.00)
 function priceFromName(name){
   let s = String(name || '');
@@ -215,7 +225,7 @@ function renderFullMenu(filter='all'){
           updateCartCount();
         }
 
-        function addToCart(item){ const existing = cart.find(i=>i.id===item.id); if(existing){ existing.qty += 1; } else{ cart.push({...item, qty:1}); } saveCart(); updateCartUI(); }
+        function addToCart(item){ const existing = cart.find(i=>i.id===item.id); if(existing){ existing.qty += 1; } else{ cart.push({...item, qty:1}); } saveCart(); updateCartUI(); showNotification('Your "' + item.name + '" has been added to cart'); }
 
         function changeQty(id, delta){ const it = cart.find(i=>i.id===id); if(!it) return; it.qty += delta; if(it.qty<1) it.qty = 1; saveCart(); updateCartUI(); }
         function removeFromCart(id){ cart = cart.filter(i=>i.id!==id); saveCart(); updateCartUI(); }
@@ -285,7 +295,7 @@ function renderFullMenu(filter='all'){
             const target = e.target; if(!target || !target.classList || !target.classList.contains('qty-input')) return; const id = target.dataset.id; if(!id) return; const val = parseInt(target.value,10) || 1; const it = cart.find(i=>i.id===id); if(!it) return; it.qty = Math.max(1,val); saveCart(); updateCartUI();
           });
 
-          const checkout = document.getElementById('checkoutBtn'); if(checkout) checkout.addEventListener('click', ()=>{ if(cart.length===0){ return; } const orderTotal = cart.reduce((sum, item)=>sum+(item.price*item.qty),0); const orderData = { id: 'ORD-' + Date.now(), items: cart.map(i=>({name:i.name, price:i.price, qty:i.qty})), total: orderTotal, status: 'new', type: 'delivery', paymentStatus: 'unpaid', date: new Date().toISOString(), customerName: 'Customer', customerPhone: '' }; try{ let orders = JSON.parse(localStorage.getItem('derry_orders')) || []; orders.push(orderData); localStorage.setItem('derry_orders', JSON.stringify(orders)); }catch(e){ console.error('Failed to save order:', e); } cart=[]; saveCart(); updateCartUI(); const off = bootstrap.Offcanvas.getInstance(document.getElementById('cartOffcanvas')); if(off) off.hide(); });
+          const checkout = document.getElementById('checkoutBtn'); if(checkout) checkout.addEventListener('click', ()=>{ if(cart.length===0){ return; } const orderTotal = cart.reduce((sum, item)=>sum+(item.price*item.qty),0); const foodNames = cart.map(i=>i.name).join(', '); const orderData = { id: 'ORD-' + Date.now(), items: cart.map(i=>({name:i.name, price:i.price, qty:i.qty})), total: orderTotal, status: 'new', type: 'delivery', paymentStatus: 'unpaid', date: new Date().toISOString(), customerName: 'Customer', customerPhone: '' }; try{ let orders = JSON.parse(localStorage.getItem('derry_orders')) || []; orders.push(orderData); localStorage.setItem('derry_orders', JSON.stringify(orders)); }catch(e){ console.error('Failed to save order:', e); } showNotification('Your "' + foodNames + '" has been placed successfully'); cart=[]; saveCart(); updateCartUI(); const off = bootstrap.Offcanvas.getInstance(document.getElementById('cartOffcanvas')); if(off) off.hide(); });
 
           // Admin password protection
           const ADMIN_PASSWORD = 'admin123'; // Default password - change this to your desired password

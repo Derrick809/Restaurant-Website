@@ -1,28 +1,29 @@
 // Image filename arrays collected from project folders
 const continentalFiles = [
-  '#foodie #foodtiktok #foodlover #foodporn #rice….jpg',
+  'foodie.jpg',
   'Grilled Chicken.jpg',
   '@foodlandfairy.jpg',
   'A straightforward yet satisfying meal! This image….jpg',
   'Better than your jalebi bai.jpg',
-  'Broccoli met Knoflooksaus (蒜蓉西兰花) - Red House….jpg',
+  'Broccoli.jpg',
   'Butter Chicken Pizza - Savory&SweetFood.jpg',
   'Cajun Sausage Pasta is a quick, flavorful, and….jpg',
-  'Continental Dishes_ 8 Best Continental Food….jpg',
+  'Continental Dishes.jpg',
   'Craving something crispy, juicy, and….jpg',
   'Fried Rice.jpg',
   'Here we have a delicious and full of flavour….jpg',
   'Indulge in the irresistible flavors of Keema….jpg',
-  'Make Street-Style Bhelpuri at home – a perfect….jpg',
+  'Make Street-Style.jpg',
   'Potato croquettes with leeks.jpg',
+  'shawama.jpg',
   'Tantalize your taste buds with an irresistible….jpg',
   'This indian masala pasta recipe is made with….jpg',
   'This white sauce pasta is an easy weeknight meal….jpg',
-  'Vegetable Salad - #macedoine #salad #recipe….jpg'
+  'Vegetable Salad.jpg'
 ];
 
 const localFiles = [
-  '#ghanafood#ghana #ghanaian #fyp #food.jpg',
+  'ghanafood.jpg',
   '13 Most Popular Ghanaian Foods You Should Try….jpg',
   'A bowl of rice balls and peanut soup with chicken….jpg',
   'A VIRTUAL TASTE OF GHANAIAN FOODS on Instagram….jpg',
@@ -35,8 +36,8 @@ const localFiles = [
   'Pepper Soup.jpg',
   'Fufu.jpg',
   'Fante Kenkey served with shito and sardines.jpg',
-  'Garri 😍.jpg',
-  'TUOZAAFI THURSDAY 😋🔥😍🇬🇭_ Reposted from… (1).jpg'
+  'Garri.jpg',
+  'TUOZAAFI THURSDA.jpg'
 ];
 
 // Mapping of filenames to proper food names
@@ -284,7 +285,7 @@ function renderFullMenu(filter='all'){
             const target = e.target; if(!target || !target.classList || !target.classList.contains('qty-input')) return; const id = target.dataset.id; if(!id) return; const val = parseInt(target.value,10) || 1; const it = cart.find(i=>i.id===id); if(!it) return; it.qty = Math.max(1,val); saveCart(); updateCartUI();
           });
 
-          const checkout = document.getElementById('checkoutBtn'); if(checkout) checkout.addEventListener('click', ()=>{ if(cart.length===0){ alert('Your cart is empty.'); return; } const orderTotal = cart.reduce((sum, item)=>sum+(item.price*item.qty),0); const orderData = { id: 'ORD-' + Date.now(), items: cart.map(i=>({name:i.name, price:i.price, qty:i.qty})), total: orderTotal, status: 'new', type: 'delivery', paymentStatus: 'unpaid', date: new Date().toISOString(), customerName: 'Customer', customerPhone: '' }; try{ let orders = JSON.parse(localStorage.getItem('derry_orders')) || []; orders.push(orderData); localStorage.setItem('derry_orders', JSON.stringify(orders)); }catch(e){ console.error('Failed to save order:', e); } alert('Order placed (simulated). Thank you!'); cart=[]; saveCart(); updateCartUI(); const off = bootstrap.Offcanvas.getInstance(document.getElementById('cartOffcanvas')); if(off) off.hide(); });
+          const checkout = document.getElementById('checkoutBtn'); if(checkout) checkout.addEventListener('click', ()=>{ if(cart.length===0){ alert('Your cart is empty.'); return; } const orderTotal = cart.reduce((sum, item)=>sum+(item.price*item.qty),0); const orderData = { id: 'ORD-' + Date.now(), items: cart.map(i=>({name:i.name, price:i.price, qty:i.qty})), total: orderTotal, status: 'new', type: 'delivery', paymentStatus: 'unpaid', date: new Date().toISOString(), customerName: 'Customer', customerPhone: '' }; try{ let orders = JSON.parse(localStorage.getItem('derry_orders')) || []; orders.push(orderData); localStorage.setItem('derry_orders', JSON.stringify(orders)); }catch(e){ console.error('Failed to save order:', e); } cart=[]; saveCart(); updateCartUI(); const off = bootstrap.Offcanvas.getInstance(document.getElementById('cartOffcanvas')); if(off) off.hide(); });
 
           // Admin password protection
           const ADMIN_PASSWORD = 'admin123'; // Default password - change this to your desired password

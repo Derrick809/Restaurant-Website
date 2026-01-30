@@ -97,13 +97,13 @@ const allMenuItems = (()=>{
   localFiles.forEach(f=>{
     const path = safePath('local foods', f);
     const clean = cleanTitle(f);
-    const id = btoa(path).slice(0,12);
+    const id = btoa(path).replace(/=+$/,'').replace(/\+/g,'-').replace(/\//g,'_');
     arr.push({ id, name: clean, path, category:'local', price: priceFromName(clean) });
   });
   continentalFiles.forEach(f=>{
     const path = safePath('continental foods', f);
     const clean = cleanTitle(f);
-    const id = btoa(path).slice(0,12);
+    const id = btoa(path).replace(/=+$/,'').replace(/\+/g,'-').replace(/\//g,'_');
     arr.push({ id, name: clean, path, category:'continental', price: priceFromName(clean) });
   });
   return arr;
